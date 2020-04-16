@@ -1,0 +1,24 @@
+{
+  "name": "userServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2020/assignment-7-li-jiapeng.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2020/assignment-7-li-jiapeng/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2020/assignment-7-li-jiapeng#readme"
+}
