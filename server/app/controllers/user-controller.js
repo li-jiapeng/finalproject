@@ -49,6 +49,7 @@ exports.save = (request, response) => {
  * @param response
 */
 exports.get = (request, response) => {
+    request.params.id;
     const userId = request.params.id;
     const result = (user) => {
         response.status(200);

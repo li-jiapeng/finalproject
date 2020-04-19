@@ -1,6 +1,6 @@
 'use strict';
 const mongoose = require('mongoose'),
-    Todo = mongoose.model('todo');
+    User = mongoose.model('user');
 
 /**
  * Returns a promise for search results.
@@ -8,46 +8,46 @@ const mongoose = require('mongoose'),
  * @param search param.
 */
 exports.search = (params) => {
-    const promise = Todo.find(params).exec();
+    const promise = User.find(params).exec();
     return promise;
 };
 
 /**
- * Saves the new todo object.
+ * Saves the new user object.
  *
- * @param todo
+ * @param user
 */
-exports.save = (todo) => {
-    const newTodo = new Todo(todo);
-    return newTodo.save();
+exports.save = (user) => {
+    const newUser = new User(user);
+    return newUser.save();
 };
 
 /**
- * Returns the todo object by id.
+ * Returns the user object by id.
  *
- * @param todoId
+ * @param userId
 */
-exports.get = (todoId) => {
-    const todoPromise = Todo.findById(todoId).exec();
-    return todoPromise;
+exports.get = (userId) => {
+    const userPromise = User.findById(userId).exec();
+    return userPromise;
 };
 
 /**
- * Updates an existing todo.
+ * Updates an existing user.
  *
- * @param updatedTodo
+ * @param updatedUser
 */
-exports.update = (updatedTodo) => {
-    const promise = Todo.findByIdAndUpdate(updatedTodo.id, updatedTodo).exec();
+exports.update = (updatedUser) => {
+    const promise = User.findByIdAndUpdate(updatedUser.id, updatedUser).exec();
     return promise;
 };
 
 /**
- * Deletes an existing todo.
+ * Deletes an existing user.
  *
- * @param todoId
+ * @param userId
 */
-exports.delete = (todoId) => {
-    const promise = Todo.findByIdAndRemove(todoId).exec();
+exports.delete = (userId) => {
+    const promise = User.findByIdAndRemove(userId).exec();
     return promise;
 };
