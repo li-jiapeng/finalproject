@@ -7,7 +7,7 @@ module.exports = (app) => {
         .get(userController.list)
         .post(userController.save);
 
-    app.route('/users/:id')
+    app.route('/users/:name')
         .get(userController.get)
         .put(userController.update)
         .delete(userController.delete);

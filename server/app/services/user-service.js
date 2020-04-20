@@ -27,8 +27,9 @@ exports.save = (user) => {
  *
  * @param userId
 */
-exports.get = (userId) => {
-    const userPromise = User.findById(userId).exec();
+exports.get = (userName) => {
+    const userPromise = User.findOne({userName:userName})
+    //const userPromise = User.findById(userId).exec();
     return userPromise;
 };
 

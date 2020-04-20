@@ -13,12 +13,11 @@ let userSchema = new Schema({
         type: String
     },
     password: {
-        type: Date
+        type: String
     }
 },
 {
-    versionKey: false,
-    timestamps: { createdAt: 'createdDate', updatedAt: 'modifiedDate' }
+    versionKey: false
 });
 // Duplicate the id field as mongoose returns _id field instead of id.
 userSchema.virtual('id').get(function(){

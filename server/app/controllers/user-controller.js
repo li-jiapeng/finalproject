@@ -49,13 +49,12 @@ exports.save = (request, response) => {
  * @param response
 */
 exports.get = (request, response) => {
-    request.params.id;
-    const userId = request.params.id;
+    const userName = request.params.name;
     const result = (user) => {
         response.status(200);
         response.json(user);
     };
-    const promise = userService.get(userId);
+    const promise = userService.get(userName);
     promise
         .then(result)
         .catch(renderErrorResponse(response));
