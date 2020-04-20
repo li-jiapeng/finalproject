@@ -19,8 +19,14 @@ export class LoginServiceService {
 
   // //get all todo items
   getUser(userName): Observable<User>{
-      this.nameURL = `${environment.serverBaseURL}/${this.userResource}/${userName}`;
+    this.nameURL = `${environment.serverBaseURL}/${this.userResource}/${userName}`;
     return this.http.get<User>(this.nameURL);
+}
+
+createUser(user: User = null): Observable<User> {
+  let newUser: User;
+  newUser = user?user:new User("user2","test2","123456");
+  return this.http.post<User>(this.userResourceURL, newUser);
 }
 
 }

@@ -4,7 +4,9 @@ export class User {
     nickName:string;
     password:string;
 
-    constructor() { 
+    constructor(nickName:string,userName:string,password:string) { 
+        this.userName = userName;
+        this.nickName = nickName;
+        this.password = password;
     }    
- 
 }
