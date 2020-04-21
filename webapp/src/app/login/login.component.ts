@@ -15,9 +15,10 @@ export class LoginComponent implements OnInit {
   td: any;
   ur: User;
   userName: String;
-
-  constructor(loginService: LoginServiceService) {
+  router:Router;
+  constructor(loginService: LoginServiceService, router: Router) {
     this.loginService = loginService;
+    this.router = router;
   }
 
   ngOnInit(): void {
@@ -52,7 +53,6 @@ export class LoginComponent implements OnInit {
         document.getElementById("account").innerHTML = user.userName;
       }
     });
-
   }
 
   checkPassword(password) {
@@ -60,11 +60,13 @@ export class LoginComponent implements OnInit {
 
     newUser$.subscribe(user => {
       this.ur = user;
+      
       if (this.ur.password != password.value) {
         //user doesn't exist
         document.getElementById("wrongPass").style.display = "block";
       } else {
         document.getElementById("wrongPass").style.display = "none";
+        this.router.navigate(['login'],{ queryParams: { username: 'test' } });
       }
     })
 
@@ -75,9 +77,6 @@ export class LoginComponent implements OnInit {
     document.getElementById("password").style.display = "none";
     document.getElementById("wrongPass").style.display = "none";
     document.getElementById("noAccount").style.display = "none";
-  }
-
-  toSignUp(){
   }
 
 }

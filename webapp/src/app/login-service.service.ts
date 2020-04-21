@@ -29,12 +29,13 @@ checkUser(userName): Observable<User>{
 }
 
 
-createUser(user: User = null): Observable<User> {
+createUser(user): Observable<User> {
   let newUser: User;
   newUser = user;
   console.log(newUser);
-
-  return this.http.post<User>(this.userResourceURL, newUser);
+  this.nameURL = `${environment.serverBaseURL}/${this.userResource}`;
+  return this.http.post<User>(this.nameURL, newUser);
+  
 }
 
 }

@@ -45,7 +45,9 @@ export class SignupComponent implements OnInit {
 
       this.usr = new User( nick.value,usern.value ,pass.value );
       alert(this.usr);
-      this.loginService.createUser(this.usr);
+      this.loginService.createUser(this.usr).subscribe(user => {
+        this.usr = user;}
+        );
       alert(2);
 
     })

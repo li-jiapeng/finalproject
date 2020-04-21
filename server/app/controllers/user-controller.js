@@ -1,5 +1,5 @@
 'use strict';
-
+var url  = require('url');
 const userService = require('../services/user-service');
 
 /**
@@ -33,6 +33,7 @@ exports.list = (request, response) => {
 exports.save = (request, response) => {
 
     const user = Object.assign({}, request.body);
+    console.log(user.userName);
     process.stdout.write(user);
     const result = (savedUser) => {
         response.status(201);
