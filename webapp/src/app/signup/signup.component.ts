@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import { LoginServiceService } from '../login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,9 +13,11 @@ export class SignupComponent implements OnInit {
 
   loginService: LoginServiceService;
   usr: User;
+  router: Router;
 
-  constructor(loginService: LoginServiceService) {
+  constructor(loginService: LoginServiceService, router: Router) {
     this.loginService = loginService;
+    this.router = router;
   }
 
   ngOnInit(): void {
@@ -43,13 +46,13 @@ export class SignupComponent implements OnInit {
         }
       }
 
-      this.usr = new User( nick.value,usern.value ,pass.value );
-      alert(this.usr);
-      this.loginService.createUser(this.usr).subscribe(user => {
-        this.usr = user;}
-        );
-      alert(2);
+      this.usr = new User(nick.value, usern.value, pass.value);
 
+      this.loginService.createUser(this.usr).subscribe(user => {
+        this.usr = user;
+      }
+      );
+      this.router.navigate(['login'], { queryParams: { username: this.usr.userName } });
     })
   }
 }
