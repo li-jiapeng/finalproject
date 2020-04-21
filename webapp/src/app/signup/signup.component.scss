@@ -22,6 +22,7 @@ input {
 }
 
 .signup {
+    display: inline;
   text-align: left;
 }
 
@@ -110,4 +111,18 @@ input {
     border: none;
     border-radius: 5px;
   }
+}
+.image{
+    position: relative;
+    left: 420px;
+    top:-380px;
+    svg{
+        position: relative;
+        top:0px;
+        width: 250px;
+    }
+    .product{
+        margin-left: 30px;
+        color: #202124;
+    }
 }

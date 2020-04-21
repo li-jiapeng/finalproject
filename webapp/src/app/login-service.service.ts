@@ -23,9 +23,17 @@ export class LoginServiceService {
     return this.http.get<User>(this.nameURL);
 }
 
+checkUser(userName): Observable<User>{
+  this.nameURL = `${environment.serverBaseURL}/${this.userResource}/${userName}`;
+  return this.http.get<User>(this.nameURL);
+}
+
+
 createUser(user: User = null): Observable<User> {
   let newUser: User;
-  newUser = user?user:new User("user2","test2","123456");
+  newUser = user;
+  console.log(newUser);
+
   return this.http.post<User>(this.userResourceURL, newUser);
 }
 
@@ -51,4 +59,3 @@ createUser(user: User = null): Observable<User> {
 //   newTodo = todo ? todo : new Todo("Untitled", "", new Date(), new Date());
 //   this.idURL = `${environment.serverBaseURL}/${this.todoResource}/${newTodo.id}`;
 //   return this.http.put<Todo>(this.idURL, newTodo);
-// }

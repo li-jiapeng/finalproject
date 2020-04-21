@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(user) {
+
     let newUser$: Observable<User> = this.loginService.getUser(user.value);
 
     newUser$.subscribe(user => {
@@ -33,12 +34,18 @@ export class LoginComponent implements OnInit {
         
         //user doesn't exist
         document.getElementById("noAccount").style.display = "block";
+        document.getElementById("user").style.borderColor = "red";
+        document.getElementById("user").style.borderWidth = "medium";
 
       } else {
-        
+
         //if find the username,
         document.getElementById("wrongPass").style.display = "none";
         document.getElementById("noAccount").style.display = "none";
+        document.getElementById("user").style.borderColor = "#DADCE0";
+        document.getElementById("user").style.borderWidth = "thin";
+  
+        //change page
         document.getElementById("userName").style.display = "none";
         document.getElementById("password").style.display = "block";
         document.getElementById("ua").innerHTML = "Hi " + user.nickName;

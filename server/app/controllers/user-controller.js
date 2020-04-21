@@ -31,7 +31,9 @@ exports.list = (request, response) => {
  * @param response
 */
 exports.save = (request, response) => {
+
     const user = Object.assign({}, request.body);
+    process.stdout.write(user);
     const result = (savedUser) => {
         response.status(201);
         response.json(savedUser);

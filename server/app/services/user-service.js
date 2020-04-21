@@ -48,6 +48,7 @@ exports.update = (updatedUser) => {
  *
  * @param userId
 */
+
 exports.delete = (userId) => {
     const promise = User.findByIdAndRemove(userId).exec();
     return promise;
