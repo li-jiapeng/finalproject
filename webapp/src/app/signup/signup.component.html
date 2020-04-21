@@ -7,9 +7,11 @@
 
     <!-- Nick Name -->
     <input #nick type="text" class="username" id="nick" placeholder="Nick name" required>
+    <p class="wrong" id="noNick">Nick name can not be empty.</p>
 
     <!-- User Name -->
     <input #user type="text" class="username" id="user" placeholder="Username" required>
+    <p class="wrong" id="noUser">User name can not be empty.</p>
     <p class="wrong" id="userexist">That username is taken. Try another.</p>
     <p class="info">You can use letters, numbers &periods</p>
 
@@ -23,6 +25,8 @@
         <input #passc type="password" class="password_set" id="pass_c" placeholder="Confirm" required>
       </div>
 
+      <p class="wrong" id="noPass">Password can not be empty.</p>
+      <p class="wrong" id="length">Password too short.</p>
       <p class="wrong" id="match">Password didn't match, try again.</p>
       <p class="info">Use 8 or more characters with a mix of letters, numbers & <br> symbols</p>
 

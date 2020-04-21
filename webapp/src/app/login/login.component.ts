@@ -26,6 +26,18 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(user) {
+    if(user.value == ""){
+      document.getElementById("noAccount").style.display = "block";
+      document.getElementById("user").style.borderColor = "red";
+      document.getElementById("user").style.borderWidth = "medium";
+      return;
+    }else{
+      
+      document.getElementById("user").style.borderColor = "#DADCE0";
+      document.getElementById("user").style.borderWidth = "thin";
+      document.getElementById("noAccount").style.display = "none";
+    }
+
 
     let newUser$: Observable<User> = this.loginService.getUser(user.value);
 
@@ -35,7 +47,7 @@ export class LoginComponent implements OnInit {
         
         //user doesn't exist
         document.getElementById("noAccount").style.display = "block";
-        document.getElementById("user").style.borderColor = "red";
+        document.getElementById("user").style.borderColor = "#D93025";
         document.getElementById("user").style.borderWidth = "medium";
 
       } else {
@@ -64,8 +76,12 @@ export class LoginComponent implements OnInit {
       if (this.ur.password != password.value) {
         //user doesn't exist
         document.getElementById("wrongPass").style.display = "block";
+        document.getElementById("pass").style.borderColor = "#D93025";
+        document.getElementById("pass").style.borderWidth = "medium";
       } else {
         document.getElementById("wrongPass").style.display = "none";
+        document.getElementById("pass").style.borderColor = "#DADCE0";
+        document.getElementById("pass").style.borderWidth = "thin";
         this.router.navigate(['login'],{ queryParams: { username: 'test' } });
       }
     })

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { Routes, RouterModule } from '@angular/router';
+import { HelpComponent } from './help/help.component';
 
 const appRoutes: Routes = [
   { path: 'Login', component: LoginComponent },
@@ -16,7 +17,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
